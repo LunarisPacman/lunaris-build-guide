@@ -1,18 +1,26 @@
 # Aerodactyl Reference Stack
 
-This page lists the public `23.2` Aerodactyl commits made by `TwistedVision518` for the Nothing Phone 2a / 2a Plus family.
+This page is the main part of the guide.
 
-It is written for people building Lunaris on the same device family, so the descriptions are kept short and easy to follow.
+Its purpose is simple:
+
+show the public `23.2` Aerodactyl commits made by `TwistedVision518` that builders may need when making Lunaris for the Nothing Phone 2a / 2a Plus family.
+
+If you are building for `Pacman` or `PacmanPro`, this page is meant to help you answer three quick questions:
+
+1. Which commits should I look at?
+2. What does each commit do?
+3. Which of them might also be useful outside Lunaris?
 
 ## How To Read This
 
-- `Short note` gives the quick reason for the commit
-- `What it does` gives a slightly clearer explanation
-- `Can help other ROMs` marks the commits that may be useful outside Lunaris too
+- `Short note` is the fast summary
+- `What it does` gives a clearer one-line explanation
+- `Can help other ROMs` marks commits that may be useful outside Lunaris too
 
-## Commit Order For Same-Device Builders
+## Main Commit List
 
-These are listed in the same order they appear in the current public `23.2` history after `ecc640e`.
+These commits are shown in the same order they appear in the current public `23.2` history after `ecc640e`.
 
 | Commit | Short note | What it does | Can help other ROMs |
 | --- | --- | --- | --- |
@@ -34,7 +42,7 @@ These are listed in the same order they appear in the current public `23.2` hist
 
 ## Quick Pick Order
 
-If you only want the short version for the same device family, use this order:
+If you only want the short version, pick the commits in this order:
 
 1. `1c6e163`
 2. `ae010f2`
@@ -54,7 +62,7 @@ If you only want the short version for the same device family, use this order:
 
 ## Commits That Can Also Help Other ROMs
 
-These are the commits from this stack that are more likely to be useful outside Lunaris too:
+These are the commits from this same stack that are more likely to be useful outside Lunaris too:
 
 - [`4e0bc89`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/4e0bc8973f8c1dc60c9d6cd18b1842794b144ddc): improves refresh-rate behavior
 - [`0ca4cde`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/0ca4cde05d7f663cfc6ea0f651dbdb38bf367a8a): reduces the cost of blur effects

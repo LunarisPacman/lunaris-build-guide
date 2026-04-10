@@ -1,33 +1,38 @@
 # Lunaris Build Guide
 
-This repo is a simple reference for people building Lunaris for the Nothing Phone 2a and 2a Plus.
+This repo exists for one reason:
 
-The main idea is straightforward:
+to help builders making Lunaris for the Nothing Phone 2a and 2a Plus understand which Aerodactyl commits they should pick, in what order, and why those commits matter.
 
-- keep the important Aerodactyl bring-up commits in one place
-- explain each one in plain language
-- make it easier to understand what should be picked and in what order
+This is not a source repo and it is not a full bring-up tutorial. It is a guide to the public commit stack.
 
-This guide is focused on the same device family, not on general Android bring-up.
+## Who This Is For
 
-## Devices Covered
+- people building Lunaris for `Pacman` (`Nothing Phone 2a`)
+- people building Lunaris for `PacmanPro` (`Nothing Phone 2a Plus`)
+- people using the common tree `Aerodactyl`
 
-- `Pacman` (`Nothing Phone 2a`)
-- `PacmanPro` (`Nothing Phone 2a Plus`)
-- common tree: `Aerodactyl`
+## What This Repo Actually Does
 
-## What You Will Find Here
+- lists the public Aerodactyl `23.2` commits made by `TwistedVision518`
+- gives each commit a short, simple description
+- shows a sensible pick order for builders on the same device family
+- points out which commits may also help other ROMs
 
-- your public Aerodactyl `23.2` commits
-- a short, easy-to-read description for each commit
-- a practical pick order for same-device builders
-- a small list of commits that can also help other ROMs
+## What This Repo Does Not Do
 
-## How To Use It
+- it does not replace your device tree
+- it does not contain the source changes themselves
+- it does not explain full Android bring-up from scratch
+
+## How To Use This Repo
 
 1. Start from a clean Lunaris `23.2` source tree.
 2. Open [docs/aerodactyl-reference-stack.md](docs/aerodactyl-reference-stack.md).
-3. Follow the commits in the order shown there.
-4. Read the short note first, then open the commit if you need the exact patch.
+3. Go through the commits in the order shown there.
+4. Read the short description first.
+5. Open the linked commit when you want the exact patch.
 
-The goal is not to overload people with theory. It is to help builders understand the stack quickly and move forward with less confusion.
+If someone asks what this repo is for, the short answer is:
+
+this is a commit guide for building Lunaris on the Nothing Phone 2a / 2a Plus family.
