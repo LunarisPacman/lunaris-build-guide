@@ -17,14 +17,6 @@ show the public `23.2` Aerodactyl commits made by `TwistedVision518` that builde
 - you already have a usable Aerodactyl tree
 - you want to know which commits are worth picking and in what order
 
-## Also Pick Outside The Device Tree
-
-This guide is mostly about the Aerodactyl device tree, but one extra commit outside the device tree matters for the charging-limit stack:
-
-| Repo | Commit | Level | Short note | What it does |
-| --- | --- | --- | --- | --- |
-| `android_hardware_lineage_interfaces` | [`8ea0fab`](https://github.com/LunarisPacman/android_hardware_lineage_interfaces/commit/8ea0fab29d6adba69a5692aa929b19a81b9a15fc) | `Required if missing` | Fixes Health HAL Soong selector types. | Lets charging-control config build correctly when toggle support is enabled. |
-
 ## Charging Limit Note
 
 The charging-limit fix is split across two places:
@@ -45,16 +37,17 @@ So if someone is looking for the real charging-limit behavior fix, the important
 
 These are the commits that form the main stack for this guide.
 
-| Commit | Level | Short note | What it does | Can help other ROMs |
-| --- | --- | --- | --- | --- |
-| [`1c6e163`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/1c6e16343b89432d0da7edea22d941e5b3e66d0c) | `Required` | Temporary fix for PacmanPro AVB. | Keeps the Plus variant moving while AVB setup is still being sorted out. | `No` |
-| [`ae010f2`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/ae010f2a3113a0b957e47430cc33d2aa536456f5) | `Required` | Adds Lunaris-specific setup. | Brings in the product-side changes needed for Lunaris. | `No` |
-| [`b3a65b2`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/b3a65b2a943dab3e6367c27dd633890fef9f431a) | `Required` | Defines the partition filesystem type. | Makes the product config clearer and safer during build setup. | `Yes` |
-| [`d8c3530`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/d8c3530d67f9483df1190671a79e7fe391787f86) | `Required` | Fixes parsing and haptics timing. | Corrects product config handling and a haptics completion issue. | `Partly` |
-| [`cd3011d`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/cd3011d2b274a6c60e6a15c983cf23107413fe2d) | `Required` | Cleans up metadata and props. | Fixes duplicate props and tidies up product information. | `No` |
-| [`9827b49`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/9827b496baabddd4b13ea786da908cf50abf613d) | `Required` | Adds ViPER config. | Pulls in the config side of ViPER4AndroidFX support. | `No` |
-| [`e5d8faa`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/e5d8faa477ab1633a41aeb25178ef0b745de05a2) | `Required` | Wires Lunaris extras. | Adds the Lunaris-side plumbing for ViPER, FaceUnlock, and emoji features. | `No` |
-| [`92471ae`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/92471ae3d029c3b3df78b2b996e1e4333ffca54f) | `Required` | Fixes charging limit behavior. | Adds the real device-side charging-limit fix for `/proc/charger/usb_charger_en` and also rebalances haptics and display transitions. | `Maybe` |
+| Repo | Commit | Level | Short note | What it does | Can help other ROMs |
+| --- | --- | --- | --- | --- | --- |
+| `android_hardware_lineage_interfaces` | [`8ea0fab`](https://github.com/LunarisPacman/android_hardware_lineage_interfaces/commit/8ea0fab29d6adba69a5692aa929b19a81b9a15fc) | `Required if missing` | Fixes Health HAL Soong selector types. | Lets charging-control config build correctly when toggle support is enabled. | `Yes` |
+| `android_device_nothing_Aerodactyl` | [`1c6e163`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/1c6e16343b89432d0da7edea22d941e5b3e66d0c) | `Required` | Temporary fix for PacmanPro AVB. | Keeps the Plus variant moving while AVB setup is still being sorted out. | `No` |
+| `android_device_nothing_Aerodactyl` | [`ae010f2`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/ae010f2a3113a0b957e47430cc33d2aa536456f5) | `Required` | Adds Lunaris-specific setup. | Brings in the product-side changes needed for Lunaris. | `No` |
+| `android_device_nothing_Aerodactyl` | [`b3a65b2`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/b3a65b2a943dab3e6367c27dd633890fef9f431a) | `Required` | Defines the partition filesystem type. | Makes the product config clearer and safer during build setup. | `Yes` |
+| `android_device_nothing_Aerodactyl` | [`d8c3530`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/d8c3530d67f9483df1190671a79e7fe391787f86) | `Required` | Fixes parsing and haptics timing. | Corrects product config handling and a haptics completion issue. | `Partly` |
+| `android_device_nothing_Aerodactyl` | [`cd3011d`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/cd3011d2b274a6c60e6a15c983cf23107413fe2d) | `Required` | Cleans up metadata and props. | Fixes duplicate props and tidies up product information. | `No` |
+| `android_device_nothing_Aerodactyl` | [`9827b49`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/9827b496baabddd4b13ea786da908cf50abf613d) | `Required` | Adds ViPER config. | Pulls in the config side of ViPER4AndroidFX support. | `No` |
+| `android_device_nothing_Aerodactyl` | [`e5d8faa`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/e5d8faa477ab1633a41aeb25178ef0b745de05a2) | `Required` | Wires Lunaris extras. | Adds the Lunaris-side plumbing for ViPER, FaceUnlock, and emoji features. | `No` |
+| `android_device_nothing_Aerodactyl` | [`92471ae`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/92471ae3d029c3b3df78b2b996e1e4333ffca54f) | `Required` | Fixes charging limit behavior. | Adds the real device-side charging-limit fix for `/proc/charger/usb_charger_en` and also rebalances haptics and display transitions. | `Maybe` |
 
 ## Recommended Improvements
 
