@@ -1,6 +1,6 @@
 # Lunaris Build Guide
 
-This repo is a commit guide for people building Lunaris on the Nothing Phone 2a / 2a Plus family.
+This repo is a commit guide for people building Lunaris for the Nothing Phone 2a / 2a Plus family.
 
 It exists to answer one practical question:
 
@@ -12,7 +12,7 @@ This is not a source repo and it is not a full bring-up tutorial. It is a guide 
 
 - If you are building Lunaris for `Pacman` or `PacmanPro`, follow this guide.
 - If your tree already builds or boots, start with the commit list.
-- If you are from another ROM, only use the reusable commits section.
+- If you are building for another ROM, only use the reusable commits section.
 
 ## Who This Is For
 

@@ -2,9 +2,7 @@
 
 This page is the main part of the guide.
 
-Its job is simple:
-
-show the public `23.2` Aerodactyl commits made by `TwistedVision518` that builders may want when making Lunaris for the Nothing Phone 2a / 2a Plus family.
+Its job is simple: show the public `23.2` Aerodactyl commits made by `TwistedVision518` that builders may want when building Lunaris for the Nothing Phone 2a / 2a Plus family.
 
 ## Last Verified
 
@@ -30,7 +28,7 @@ So if someone is looking for the real charging-limit behavior fix, the important
 
 - `Required` means the commit is part of the core stack for this guide
 - `Recommended` means the commit is useful, but not absolutely essential
-- `Optional` means the commit is more device-taste or tuning related
+- `Optional` means the commit is more preference-based or tuning-related
 - `Can help other ROMs` marks commits that may be useful outside Lunaris too
 
 ## Required For Lunaris Bring-Up
@@ -63,7 +61,7 @@ These are the commits that make the build feel better or behave better on the sa
 
 ## Optional Device Tuning
 
-These are more taste-dependent or device-tuning commits.
+These are more preference-based or device-tuning commits.
 
 | Commit | Level | Short note | What it does | Can help other ROMs |
 | --- | --- | --- | --- | --- |
