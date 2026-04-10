@@ -64,21 +64,21 @@ These are more taste-dependent or device-tuning commits.
 
 If you want the safest order, use the same order as the public `23.2` history:
 
-1. `1c6e163`
-2. `ae010f2`
-3. `4e0bc89`
-4. `0ca4cde`
-5. `c7c74d4`
-6. `0e586ab`
-7. `084aed6`
-8. `43b0496`
-9. `c6396f4`
-10. `b3a65b2`
-11. `d8c3530`
-12. `cd3011d`
-13. `9827b49`
-14. `e5d8faa`
-15. `92471ae`
+1. `1c6e163` - temporary PacmanPro AVB workaround
+2. `ae010f2` - adds Lunaris-specific product setup
+3. `4e0bc89` - improves refresh-rate handling
+4. `0ca4cde` - reduces the cost of blur effects
+5. `c7c74d4` - brings in the first larger optimization batch
+6. `0e586ab` - adds memory and network tuning
+7. `084aed6` - relaxes thermal limits a bit
+8. `43b0496` - cleans up haptic mapping
+9. `c6396f4` - pushes UI responsiveness further
+10. `b3a65b2` - defines the partition filesystem type
+11. `d8c3530` - fixes parsing and haptics timing
+12. `cd3011d` - cleans up metadata and props
+13. `9827b49` - adds ViPER config
+14. `e5d8faa` - wires Lunaris extras
+15. `92471ae` - final UX balance pass
 
 ## Cherry-Pick Commands
 
