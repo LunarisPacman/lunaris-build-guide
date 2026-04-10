@@ -17,6 +17,14 @@ show the public `23.2` Aerodactyl commits made by `TwistedVision518` that builde
 - you already have a usable Aerodactyl tree
 - you want to know which commits are worth picking and in what order
 
+## Also Pick Outside The Device Tree
+
+This guide is mostly about the Aerodactyl device tree, but one extra commit outside the device tree matters for the charging-limit stack:
+
+| Repo | Commit | Level | Short note | What it does |
+| --- | --- | --- | --- | --- |
+| `android_hardware_lineage_interfaces` | [`8ea0fab`](https://github.com/LunarisPacman/android_hardware_lineage_interfaces/commit/8ea0fab29d6adba69a5692aa929b19a81b9a15fc) | `Required if missing` | Fixes Health HAL Soong selector types. | Lets charging-control config build correctly when toggle support is enabled. |
+
 ## Charging Limit Note
 
 The charging-limit fix is split across two places:
@@ -71,29 +79,32 @@ These are more taste-dependent or device-tuning commits.
 
 ## Cherry-Pick Order
 
-If you want the safest order, use the same order as the public `23.2` history:
+If you want the safest order, use this:
 
-1. `1c6e163` - temporary PacmanPro AVB workaround
-2. `ae010f2` - adds Lunaris-specific product setup
-3. `4e0bc89` - improves refresh-rate handling
-4. `0ca4cde` - reduces the cost of blur effects
-5. `c7c74d4` - brings in the first larger optimization batch
-6. `0e586ab` - adds memory and network tuning
-7. `084aed6` - relaxes thermal limits a bit
-8. `43b0496` - cleans up haptic mapping
-9. `c6396f4` - pushes UI responsiveness further
-10. `b3a65b2` - defines the partition filesystem type
-11. `d8c3530` - fixes parsing and haptics timing
-12. `cd3011d` - cleans up metadata and props
-13. `9827b49` - adds ViPER config
-14. `e5d8faa` - wires Lunaris extras
-15. `92471ae` - fixes charging limit behavior and does the final UX balance pass
+1. `8ea0fab` in `android_hardware_lineage_interfaces` - fixes Health HAL Soong selector types
+2. `1c6e163` - temporary PacmanPro AVB workaround
+3. `ae010f2` - adds Lunaris-specific product setup
+4. `4e0bc89` - improves refresh-rate handling
+5. `0ca4cde` - reduces the cost of blur effects
+6. `c7c74d4` - brings in the first larger optimization batch
+7. `0e586ab` - adds memory and network tuning
+8. `084aed6` - relaxes thermal limits a bit
+9. `43b0496` - cleans up haptic mapping
+10. `c6396f4` - pushes UI responsiveness further
+11. `b3a65b2` - defines the partition filesystem type
+12. `d8c3530` - fixes parsing and haptics timing
+13. `cd3011d` - cleans up metadata and props
+14. `9827b49` - adds ViPER config
+15. `e5d8faa` - wires Lunaris extras
+16. `92471ae` - fixes charging limit behavior and does the final UX balance pass
 
 ## Cherry-Pick Commands
 
-These commands assume a clean and compatible Lunaris `23.2` Aerodactyl tree. If your tree already differs, you may need to resolve cherry-pick conflicts manually.
+These commands assume a clean and compatible Lunaris `23.2` tree. If your tree already differs, you may need to resolve cherry-pick conflicts manually.
 
 ```bash
+git -C hardware/lineage/interfaces cherry-pick 8ea0fab29d6adba69a5692aa929b19a81b9a15fc
+
 git cherry-pick 1c6e163 ae010f2 4e0bc89 0ca4cde c7c74d4
 git cherry-pick 0e586ab 084aed6 43b0496 c6396f4 b3a65b2
 # includes the actual device-side charging-limit fix
