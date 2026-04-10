@@ -62,30 +62,30 @@ These are more taste-dependent or device-tuning commits.
 
 ## Cherry-Pick Order
 
-If you want the practical order, use this:
+If you want the safest order, use the same order as the public `23.2` history:
 
 1. `1c6e163`
 2. `ae010f2`
-3. `b3a65b2`
-4. `d8c3530`
-5. `cd3011d`
-6. `9827b49`
-7. `e5d8faa`
-8. `4e0bc89`
-9. `0ca4cde`
-10. `c7c74d4`
-11. `0e586ab`
-12. `c6396f4`
-13. `084aed6`
-14. `43b0496`
+3. `4e0bc89`
+4. `0ca4cde`
+5. `c7c74d4`
+6. `0e586ab`
+7. `084aed6`
+8. `43b0496`
+9. `c6396f4`
+10. `b3a65b2`
+11. `d8c3530`
+12. `cd3011d`
+13. `9827b49`
+14. `e5d8faa`
 15. `92471ae`
 
 ## Cherry-Pick Commands
 
 ```bash
-git cherry-pick 1c6e163 ae010f2 b3a65b2 d8c3530 cd3011d 9827b49 e5d8faa
-git cherry-pick 4e0bc89 0ca4cde c7c74d4 0e586ab c6396f4
-git cherry-pick 084aed6 43b0496 92471ae
+git cherry-pick 1c6e163 ae010f2 4e0bc89 0ca4cde c7c74d4
+git cherry-pick 0e586ab 084aed6 43b0496 c6396f4 b3a65b2
+git cherry-pick d8c3530 cd3011d 9827b49 e5d8faa 92471ae
 ```
 
 ## Commits That Can Also Help Other ROMs
