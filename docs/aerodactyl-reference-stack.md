@@ -82,6 +82,8 @@ If you want the safest order, use the same order as the public `23.2` history:
 
 ## Cherry-Pick Commands
 
+These commands assume a clean and compatible Lunaris `23.2` Aerodactyl tree. If your tree already differs, you may need to resolve cherry-pick conflicts manually.
+
 ```bash
 git cherry-pick 1c6e163 ae010f2 4e0bc89 0ca4cde c7c74d4
 git cherry-pick 0e586ab 084aed6 43b0496 c6396f4 b3a65b2
