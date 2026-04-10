@@ -28,6 +28,12 @@ This is not a source repo and it is not a full bring-up tutorial. It is a guide 
 - gives a clean pick order with ready-to-use cherry-pick commands
 - points out which commits may also help other ROMs
 
+## Important Note About Charging Limit
+
+The actual charging-limit behavior fix is in the Aerodactyl device tree.
+
+If you see people mention [`8ea0fab`](https://github.com/LunarisPacman/android_hardware_lineage_interfaces/commit/8ea0fab29d6adba69a5692aa929b19a81b9a15fc), that is only the Health HAL build-side fix for Soong config selectors. It is not the device-side charging behavior fix by itself.
+
 ## What This Repo Assumes
 
 - you are building on Lunaris `23.2`

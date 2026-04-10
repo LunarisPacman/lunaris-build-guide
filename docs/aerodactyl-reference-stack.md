@@ -17,6 +17,15 @@ show the public `23.2` Aerodactyl commits made by `TwistedVision518` that builde
 - you already have a usable Aerodactyl tree
 - you want to know which commits are worth picking and in what order
 
+## Charging Limit Note
+
+The charging-limit fix is split across two places:
+
+- the actual device-side behavior fix is in [`92471ae`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/92471aea06fb377e24b078a0c8684cf9122d50c8), where the Aerodactyl tree sets the correct charging node, inverted values, and toggle support
+- [`8ea0fab`](https://github.com/LunarisPacman/android_hardware_lineage_interfaces/commit/8ea0fab29d6adba69a5692aa929b19a81b9a15fc) only fixes the Health HAL Soong selector types so the charging-control config can build correctly
+
+So if someone is looking for the real charging-limit behavior fix, the important Aerodactyl-side change is the one carried by `92471ae`.
+
 ## How To Read This
 
 - `Required` means the commit is part of the core stack for this guide
