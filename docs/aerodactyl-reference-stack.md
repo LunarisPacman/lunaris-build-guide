@@ -46,6 +46,7 @@ These are the commits that form the main stack for this guide.
 | [`cd3011d`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/cd3011d2e3a0b9694400df4e23fb9091bde65b6e) | `Required` | Cleans up metadata and props. | Fixes duplicate props and tidies up product information. | `No` |
 | [`9827b49`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/9827b49f7223f1dc1a64707c21b24795a934579d) | `Required` | Adds ViPER config. | Pulls in the config side of ViPER4AndroidFX support. | `No` |
 | [`e5d8faa`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/e5d8faa556af49900c76828254b3381b2b37f761) | `Required` | Wires Lunaris extras. | Adds the Lunaris-side plumbing for ViPER, FaceUnlock, and emoji features. | `No` |
+| [`92471ae`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/92471aea06fb377e24b078a0c8684cf9122d50c8) | `Required` | Fixes charging limit behavior. | Adds the real device-side charging-limit fix for `/proc/charger/usb_charger_en` and also rebalances haptics and display transitions. | `Maybe` |
 
 ## Recommended Improvements
 
@@ -67,7 +68,6 @@ These are more taste-dependent or device-tuning commits.
 | --- | --- | --- | --- | --- |
 | [`084aed6`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/084aed6c7b1f0f50d76a64542380628ba706b5fd) | `Optional` | Relaxes thermal limits a bit. | Lets the device hold performance longer before throttling. | `Maybe` |
 | [`43b0496`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/43b0496356d4436f413f7903ec2e9b4e4ed21829) | `Optional` | Cleans up haptic mapping. | Makes vibration effects feel more consistent. | `Maybe` |
-| [`92471ae`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/92471aea06fb377e24b078a0c8684cf9122d50c8) | `Optional` | Final UX balance pass. | Rebalances haptics and display transitions after the earlier tuning work. | `Maybe` |
 
 ## Cherry-Pick Order
 
@@ -87,7 +87,7 @@ If you want the safest order, use the same order as the public `23.2` history:
 12. `cd3011d` - cleans up metadata and props
 13. `9827b49` - adds ViPER config
 14. `e5d8faa` - wires Lunaris extras
-15. `92471ae` - final UX balance pass
+15. `92471ae` - fixes charging limit behavior and does the final UX balance pass
 
 ## Cherry-Pick Commands
 
@@ -96,6 +96,7 @@ These commands assume a clean and compatible Lunaris `23.2` Aerodactyl tree. If 
 ```bash
 git cherry-pick 1c6e163 ae010f2 4e0bc89 0ca4cde c7c74d4
 git cherry-pick 0e586ab 084aed6 43b0496 c6396f4 b3a65b2
+# includes the actual device-side charging-limit fix
 git cherry-pick d8c3530 cd3011d 9827b49 e5d8faa 92471ae
 ```
 
