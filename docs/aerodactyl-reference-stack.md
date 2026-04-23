@@ -99,8 +99,8 @@ If you want the safest order for the Aerodactyl stack, use this:
 3. `ae010f2` - adds Lunaris-specific product setup
 4. `4e0bc89` - improves refresh-rate handling
 5. `a13fc5a` - brings in the first optimization batch
-6. `16a963a` - adds memory and network tuning
-7. `61a518c` - pushes UI responsiveness further
+6. `122679e` - adds memory and network tuning
+7. `37ca756` - pushes UI responsiveness further
 8. `f5cb9d3` - defines the partition filesystem type
 9. `01fc06b` - fixes product parsing for lunch and dumpvars
 10. `397e328` - cleans up metadata and duplicate props
