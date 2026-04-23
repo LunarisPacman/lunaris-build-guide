@@ -36,7 +36,7 @@ This is not a source repo and it is not a full bring-up tutorial. It is a guide 
 The charging-limit fix is split across two repos:
 
 - [`8ea0fab`](https://github.com/LunarisPacman/android_hardware_lineage_interfaces/commit/8ea0fab29d6adba69a5692aa929b19a81b9a15fc) in `android_hardware_lineage_interfaces` fixes the Health HAL build-side Soong selector issue
-- [`5f725da`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/5f725da678e8b35c26fe6b6e658f05d2a97cde15) in `android_device_nothing_Aerodactyl` fixes the actual device-side charging-limit behavior
+- [`080f319`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/080f319919312203e866f8923280f0ccad4a1645) in `android_device_nothing_Aerodactyl` fixes the actual device-side charging-limit behavior
 
 ## What This Repo Assumes
 
