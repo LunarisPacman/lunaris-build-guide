@@ -20,10 +20,10 @@ Its job is simple: show the public `TwistedVision518` commits that matter most w
 
 The charging-limit fix is split across two places:
 
-- the actual device-side behavior fix is in [`86bf9e7`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/86bf9e7ed5de183d178f2f9afabca9f2f2a14028), where the Aerodactyl tree sets the correct charging node, inverted values, and toggle-only support
+- the actual device-side behavior fix is in [`5f725da`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/5f725da678e8b35c26fe6b6e658f05d2a97cde15), where the Aerodactyl tree sets the correct charging node, inverted values, and toggle-only support
 - [`8ea0fab`](https://github.com/LunarisPacman/android_hardware_lineage_interfaces/commit/8ea0fab29d6adba69a5692aa929b19a81b9a15fc) only fixes the Health HAL Soong selector types so the charging-control config can build correctly
 
-So if someone is looking for the real charging-limit behavior fix, the important Aerodactyl-side change is `86bf9e7`.
+So if someone is looking for the real charging-limit behavior fix, the important Aerodactyl-side change is `5f725da`.
 
 ## How To Read This
 
@@ -41,9 +41,9 @@ These are the commits that form the core same-device stack.
 | `android_hardware_lineage_interfaces` | [`8ea0fab`](https://github.com/LunarisPacman/android_hardware_lineage_interfaces/commit/8ea0fab29d6adba69a5692aa929b19a81b9a15fc) | `Required if missing` | Fixes Health HAL Soong selector types. | Lets charging-control config build correctly when toggle support is enabled. | `Yes` |
 | `android_device_nothing_Aerodactyl` | [`1c6e163`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/1c6e16343b89432d0da7edea22d941e5b3e66d0c) | `Required` | Temporary fix for PacmanPro AVB. | Keeps the Plus variant moving while AVB setup is still being sorted out. | `No` |
 | `android_device_nothing_Aerodactyl` | [`ae010f2`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/ae010f2a3113a0b957e47430cc33d2aa536456f5) | `Required` | Adds Lunaris-specific setup. | Brings in the product-side setup for Lunaris on this device family. | `No` |
-| `android_device_nothing_Aerodactyl` | [`b510af3`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/b510af3b72c644fc2a14ead5388609800fcfd3d2) | `Required` | Defines the partition filesystem type. | Fixes the missing filesystem-type case that can break product parsing during lunch and dumpvars. | `Yes` |
-| `android_device_nothing_Aerodactyl` | [`f93e2c4`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/f93e2c4b63332f8c6b1a129415da3b937a5a0c19) | `Required` | Fixes parsing and haptics timing. | Cleans up product parsing, keeps the haptics callback timing sane, and rolls back the earlier thermal bump. | `Partly` |
-| `android_device_nothing_Aerodactyl` | [`86bf9e7`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/86bf9e7ed5de183d178f2f9afabca9f2f2a14028) | `Required` | Fixes charging limit behavior. | Adds the real device-side charging-limit fix and also rebalances haptics and display transitions. | `Maybe` |
+| `android_device_nothing_Aerodactyl` | [`f5cb9d3`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/f5cb9d315ad9d1247c73115a68f5d9575671ce6b) | `Required` | Defines the partition filesystem type. | Fixes the missing filesystem-type case that can break product parsing during lunch and dumpvars. | `Yes` |
+| `android_device_nothing_Aerodactyl` | [`01fc06b`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/01fc06bcabba5e5156ca50b93235157a43f51662) | `Required` | Fixes product parsing for lunch. | Cleans up product parsing and removes the duplicated virtual A/B block. | `Yes` |
+| `android_device_nothing_Aerodactyl` | [`5f725da`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/5f725da678e8b35c26fe6b6e658f05d2a97cde15) | `Required` | Fixes charging limit behavior. | Adds the real device-side charging-limit fix for `/proc/charger/usb_charger_en`. | `Maybe` |
 
 ## Recommended Same-Device Commits
 
@@ -53,11 +53,13 @@ These are the commits that make the build feel better, cleaner, or more complete
 | --- | --- | --- | --- | --- | --- |
 | `android_device_nothing_Aerodactyl` | [`4e0bc89`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/4e0bc891accd7d94255ed63cda0d51b332f184e3) | `Recommended` | Improves refresh-rate handling. | Sets saner refresh-rate categories so the device feels smoother. | `Yes` |
 | `android_device_nothing_Aerodactyl` | [`a13fc5a`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/a13fc5a687160d238b7eec1a027089ab5a92444f) | `Recommended` | First main optimization batch. | Pulls in the first larger set of performance-focused tweaks. | `Yes, review first` |
-| `android_device_nothing_Aerodactyl` | [`16a963a`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/16a963ae65f68b366768d48f15c60017af185c1c) | `Recommended` | Adds memory and network tuning. | Improves the stack further with ZRAM, DEX preopt, and TCP tuning. | `Yes, review first` |
-| `android_device_nothing_Aerodactyl` | [`61a518c`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/61a518c53adb9f724142591b739e0316d7664d43) | `Recommended` | Pushes UI responsiveness further. | Tunes CPU and GPU behavior to make the UI feel snappier. | `Yes, review first` |
-| `android_device_nothing_Aerodactyl` | [`bffc8e2`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/bffc8e2b9e531d05421ecd027a498d6c394265b7) | `Recommended` | Cleans up metadata and props. | Fixes duplicate props and tidies up product information. | `No` |
-| `android_device_nothing_Aerodactyl` | [`ef219d3`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/ef219d3dd57f6a79c8d961f7c10e99157c0c463f) | `Recommended` | Adds ViPER and FaceUnlock plumbing. | Wires ViPER4AndroidFX and FaceUnlock support. The emoji part of this commit is not important for this guide and can be ignored. | `Partly` |
-| `android_device_nothing_Aerodactyl` | [`b566cb0`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/b566cb0d6d5d55ccd77e073333226176ab80040c) | `Recommended` | Cleans up old build flags. | Removes product flags that are no longer used and centralizes the maintainer property. | `Yes` |
+| `android_device_nothing_Aerodactyl` | [`122679e`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/122679e4db9257f5f13e29327536745e52a24f8c) | `Recommended` | Adds memory and network tuning. | Switches zram to zstd, enables dexpreopt, and turns on TCP Fast Open. | `Yes, review first` |
+| `android_device_nothing_Aerodactyl` | [`37ca756`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/37ca75644fe8f51941c8e57d52abfe04fea21849) | `Recommended` | Pushes UI responsiveness further. | Tunes CPU and GPU behavior to make the UI feel snappier. | `Yes, review first` |
+| `android_device_nothing_Aerodactyl` | [`397e328`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/397e328bff6673b1301f169e0dc299571e4b6199) | `Recommended` | Cleans up metadata and props. | Fixes duplicate props and tidies up product information. | `No` |
+| `android_device_nothing_Aerodactyl` | [`b137e56`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/b137e564345da568e29027c0322f9b4508c88aad) | `Recommended` | Wires ViPER4AndroidFX support. | Inherits the ViPER config and exposes the vendor audio effect hook-up. | `Partly` |
+| `android_device_nothing_Aerodactyl` | [`91fe55e`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/91fe55e5ed7aa5303f3df4b659dbe3faa12b9c14) | `Recommended` | Pins FaceUnlock to the front camera. | Forces FaceUnlock to use the correct selfie camera ID on this device family. | `Yes, if you ship FaceUnlock` |
+| `android_device_nothing_Aerodactyl` | [`ecedda7`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/ecedda7faf67b8e208d921a9d63ff7d252291d46) | `Recommended` | Rebalances haptics and display transitions. | Tunes the default haptic overlays and enables the higher performance transition path. | `Maybe` |
+| `android_device_nothing_Aerodactyl` | [`4578060`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/4578060564c2b2b7591142b99440ddb930273f1a) | `Recommended` | Cleans up old build flags. | Removes product flags that are no longer used and centralizes the maintainer property. | `Yes` |
 
 ## Optional Device Tuning
 
@@ -65,8 +67,8 @@ These are more preference-based or taste-based commits.
 
 | Repo | Commit | Level | Short note | What it does | Can help other ROMs |
 | --- | --- | --- | --- | --- | --- |
-| `android_device_nothing_Aerodactyl` | [`e91aac4`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/e91aac4e0d41f176eac55e68221ad39cbcb10fec) | `Optional` | Relaxes thermal limits a bit. | Lets the device hold performance longer before throttling. | `Maybe` |
-| `android_device_nothing_Aerodactyl` | [`178453b`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/178453bbac7081c6856ee4b908f3ef32a5192d45) | `Optional` | Cleans up haptic mapping. | Makes vibration effects feel more consistent. | `Maybe` |
+| `android_device_nothing_Aerodactyl` | [`3e88490`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/3e884903ab9e7b91aa5c9e9f2b94bbd8f46d5f21) | `Optional` | Cleans up haptic mapping. | Makes vibration effects feel more consistent. | `Maybe` |
+| `android_device_nothing_Aerodactyl` | [`7cc8d55`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/7cc8d55ca906a78035da7e74b55ba6be9e9ed435) | `Optional` | Fixes DOUBLE_CLICK completion timing. | Waits for the second pulse to finish before reporting the haptic callback as complete. | `Yes` |
 
 ## Related Lunaris-Side Commits In Other Repos
 
@@ -99,12 +101,14 @@ If you want the safest order for the Aerodactyl stack, use this:
 5. `a13fc5a` - brings in the first optimization batch
 6. `16a963a` - adds memory and network tuning
 7. `61a518c` - pushes UI responsiveness further
-8. `b510af3` - defines the partition filesystem type
-9. `f93e2c4` - fixes parsing and haptics timing
-10. `bffc8e2` - cleans up metadata and duplicate props
-11. `ef219d3` - adds ViPER and FaceUnlock plumbing
-12. `86bf9e7` - fixes charging limit behavior and rebalances haptics
-13. `b566cb0` - cleans up old build flags
+8. `f5cb9d3` - defines the partition filesystem type
+9. `01fc06b` - fixes product parsing for lunch and dumpvars
+10. `397e328` - cleans up metadata and duplicate props
+11. `b137e56` - wires ViPER4AndroidFX support
+12. `91fe55e` - pins FaceUnlock to the front camera
+13. `5f725da` - fixes charging limit behavior
+14. `ecedda7` - rebalances haptics and display transitions
+15. `4578060` - cleans up old build flags
 
 ## Cherry-Pick Commands
 
@@ -113,10 +117,10 @@ These commands assume a clean and compatible Lunaris `23.2` tree. If your tree a
 ```bash
 git -C hardware/lineage/interfaces cherry-pick 8ea0fab29d6adba69a5692aa929b19a81b9a15fc
 
-git cherry-pick 1c6e163 ae010f2 4e0bc89 a13fc5a 16a963a
-git cherry-pick 61a518c b510af3 f93e2c4 bffc8e2 ef219d3
+git cherry-pick 1c6e163 ae010f2 4e0bc89 a13fc5a 122679e
+git cherry-pick 37ca756 f5cb9d3 01fc06b 397e328 b137e56
 # includes the actual device-side charging-limit fix
-git cherry-pick 86bf9e7 b566cb0
+git cherry-pick 91fe55e 5f725da ecedda7 4578060
 ```
 
 If you also want the related Lunaris-side app work:
@@ -134,11 +138,11 @@ These are the commits from this guide that are more likely to be useful outside 
   warning: check whether your display stack uses the same refresh-rate logic
 - [`a13fc5a`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/a13fc5a687160d238b7eec1a027089ab5a92444f): brings in a larger optimization-focused base
   warning: read it line by line before reusing it
-- [`16a963a`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/16a963ae65f68b366768d48f15c60017af185c1c): adds memory and network tuning
+- [`122679e`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/122679e4db9257f5f13e29327536745e52a24f8c): adds memory and network tuning
   warning: tune this against your own RAM size and network stack
-- [`61a518c`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/61a518c53adb9f724142591b739e0316d7664d43): improves UI responsiveness
+- [`37ca756`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/37ca75644fe8f51941c8e57d52abfe04fea21849): improves UI responsiveness
   warning: scheduler and GPU tuning do not transfer equally well to every device
-- [`b510af3`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/b510af3b72c644fc2a14ead5388609800fcfd3d2): makes build config more explicit
+- [`f5cb9d3`](https://github.com/LunarisPacman/android_device_nothing_Aerodactyl/commit/f5cb9d315ad9d1247c73115a68f5d9575671ce6b): makes build config more explicit
   warning: only useful if your product setup has the same ambiguity
 - [`7308500`](https://github.com/LunarisPacman/android_packages_apps_FaceUnlock/commit/730850086a74419465d34ef6ec8bcf8ae900654f): improves FaceUnlock reliability
   warning: only useful if your ROM actually ships the same FaceUnlock app
